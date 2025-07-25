@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}Legal Resources - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="legal-resources-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header text-center mb-5">
+                    <h2><i class="fas fa-gavel me-3"></i>Legal Resources</h2>
+                    <p class="lead">Understanding your legal rights and available legal protections</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="legal-content">
+                    <div class="legal-section">
+                        <h3>Protection Orders</h3>
+                        <p>A protection order is a legal document that can help protect you from further abuse or harassment.</p>
+                        
+                        <h5>Types of Protection Orders:</h5>
+                        <ul>
+                            <li><strong>Interim Protection Order:</strong> Immediate temporary protection</li>
+                            <li><strong>Final Protection Order:</strong> Long-term protection after court hearing</li>
+                        </ul>
+                        
+                        <h5>How to Apply:</h5>
+                        <ol>
+                            <li>Go to your nearest Magistrate's Court</li>
+                            <li>Complete Form 2 (application for protection order)</li>
+                            <li>Submit supporting evidence if available</li>
+                            <li>Attend court hearing if required</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="legal-section">
+                        <h3>Your Legal Rights</h3>
+                        <div class="rights-grid">
+                            <div class="right-item">
+                                <h6>Right to Safety</h6>
+                                <p>You have the right to live free from violence and abuse</p>
+                            </div>
+                            <div class="right-item">
+                                <h6>Right to Legal Protection</h6>
+                                <p>You can seek protection orders and legal remedies</p>
+                            </div>
+                            <div class="right-item">
+                                <h6>Right to Legal Aid</h6>
+                                <p>Free legal assistance is available through Legal Aid SA</p>
+                            </div>
+                            <div class="right-item">
+                                <h6>Right to Privacy</h6>
+                                <p>Your case can be heard in private chambers</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="legal-section">
+                        <h3>Criminal vs Civil Proceedings</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="proceeding-type">
+                                    <h5>Criminal Case</h5>
+                                    <ul>
+                                        <li>State prosecutes the accused</li>
+                                        <li>You are a witness, not the complainant</li>
+                                        <li>Can result in imprisonment or fine</li>
+                                        <li>Must be reported to police</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="proceeding-type">
+                                    <h5>Civil Case</h5>
+                                    <ul>
+                                        <li>You take action against the accused</li>
+                                        <li>Can claim damages</li>
+                                        <li>Protection orders are civil matters</li>
+                                        <li>Lower burden of proof required</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="legal-contacts">
+                    <h4>Legal Assistance Contacts</h4>
+                    
+                    <div class="contact-card">
+                        <h6>Legal Aid South Africa</h6>
+                        <p><i class="fas fa-phone me-2"></i>0800 110 110</p>
+                        <p><i class="fas fa-envelope me-2"></i>info@legal-aid.co.za</p>
+                        <p class="small">Free legal services for qualifying individuals</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h6>Pro Bono.Org</h6>
+                        <p><i class="fas fa-phone me-2"></i>011 339 6080</p>
+                        <p><i class="fas fa-envelope me-2"></i>info@probono.org.za</p>
+                        <p class="small">Connects people with volunteer lawyers</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h6>Women's Legal Centre</h6>
+                        <p><i class="fas fa-phone me-2"></i>021 424 5660</p>
+                        <p><i class="fas fa-envelope me-2"></i>info@wlce.co.za</p>
+                        <p class="small">Specialized legal services for women</p>
+                    </div>
+                </div>
+                
+                <div class="emergency-legal">
+                    <h5>Emergency Legal Help</h5>
+                    <p>If you need immediate legal protection:</p>
+                    <ol>
+                        <li>Go to your nearest Magistrate's Court</li>
+                        <li>Ask for the clerk of the court</li>
+                        <li>Request an interim protection order</li>
+                        <li>Bring any evidence you have</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

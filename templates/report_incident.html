@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Report an Incident - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="form-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-card">
+                    <div class="form-header text-center mb-4">
+                        <h2><i class="fas fa-shield-alt me-3"></i>Report an Incident</h2>
+                        <p class="text-muted">
+                            Your report is completely confidential and secure. You can choose to remain anonymous.
+                        </p>
+                    </div>
+                    
+                    <div class="security-notice mb-4">
+                        <i class="fas fa-lock me-2"></i>
+                        <strong>Your privacy is protected:</strong> All reports are encrypted and stored securely. 
+                        You control who can contact you and how.
+                    </div>
+                    
+                    <form method="POST" id="incidentForm">
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="mb-4">
+                            {{ form.incident_type.label(class="form-label required") }}
+                            {{ form.incident_type(class="form-select") }}
+                            {% if form.incident_type.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.incident_type.errors %}{{ error }}{% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-4">
+                            {{ form.description.label(class="form-label required") }}
+                            {{ form.description(class="form-control", rows="6", placeholder="Please describe what happened. Include as much detail as you feel comfortable sharing.") }}
+                            <div class="form-text">
+                                This information helps us understand your situation and provide appropriate support.
+                            </div>
+                            {% if form.description.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.description.errors %}{{ error }}{% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-4">
+                            {{ form.location.label(class="form-label") }}
+                            {{ form.location(class="form-control", placeholder="e.g., Johannesburg, Cape Town (Optional)") }}
+                            <div class="form-text">
+                                Approximate location helps us connect you with local resources. This is optional.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label required">How urgent is your situation?</label>
+                            <div class="urgency-options">
+                                {% for subfield in form.urgency_level %}
+                                    <div class="form-check urgency-option">
+                                        {{ subfield(class="form-check-input") }}
+                                        {{ subfield.label(class="form-check-label") }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% if form.urgency_level.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.urgency_level.errors %}{{ error }}{% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-4">
+                            {{ form.contact_preference.label(class="form-label") }}
+                            {{ form.contact_preference(class="form-select") }}
+                            <div class="form-text">
+                                Choose how you'd like to be contacted about your report. You can select "Do not contact me" to remain completely anonymous.
+                            </div>
+                        </div>
+                        
+                        <div class="important-notice mb-4">
+                            <h6><i class="fas fa-info-circle me-2"></i>Important Information:</h6>
+                            <ul class="mb-0">
+                                <li>If you're in immediate danger, please call <strong>10111</strong> or go to your nearest police station</li>
+                                <li>Your report will be assigned a confidential case ID for tracking</li>
+                                <li>All information is encrypted and stored securely</li>
+                                <li>You can update your contact preferences at any time</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-paper-plane me-2"></i>Submit Report
+                            </button>
+                            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary btn-lg">
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+                    
+                    <div class="emergency-reminder mt-4">
+                        <div class="alert alert-danger">
+                            <strong><i class="fas fa-exclamation-triangle me-2"></i>Emergency Situation?</strong>
+                            If you're in immediate danger, don't wait. Call <a href="tel:10111" class="alert-link">10111</a> now.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

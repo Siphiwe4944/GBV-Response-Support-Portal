@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Report Submitted - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="success-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="success-card text-center">
+                    <div class="success-icon mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    
+                    <h2 class="mb-3">Report Submitted Successfully</h2>
+                    <p class="lead mb-4">
+                        Your report has been received and is being processed. Thank you for having the courage to reach out.
+                    </p>
+                    
+                    <div class="case-info mb-4">
+                        <h5>Your Case Reference</h5>
+                        <div class="case-id">{{ report.id[:8] }}</div>
+                        <p class="text-muted">
+                            Keep this reference number safe. You can use it to track your case status.
+                        </p>
+                    </div>
+                    
+                    <div class="next-steps mb-4">
+                        <h5>What Happens Next?</h5>
+                        <div class="row g-3 mt-3">
+                            <div class="col-md-4">
+                                <div class="step-card">
+                                    <i class="fas fa-user-shield"></i>
+                                    <h6>Review</h6>
+                                    <p>Your report is reviewed by trained professionals</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="step-card">
+                                    <i class="fas fa-phone"></i>
+                                    <h6>Contact</h6>
+                                    <p>We'll reach out based on your preferences</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="step-card">
+                                    <i class="fas fa-hands-helping"></i>
+                                    <h6>Support</h6>
+                                    <p>Connect you with appropriate resources</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="actions mb-4">
+                        <a href="{{ url_for('track_progress') }}" class="btn btn-primary me-3">
+                            <i class="fas fa-chart-line me-2"></i>Track Your Case
+                        </a>
+                        <a href="{{ url_for('find_services') }}" class="btn btn-success me-3">
+                            <i class="fas fa-search me-2"></i>Find Support Services
+                        </a>
+                        <a href="{{ url_for('safety_planning') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-shield-alt me-2"></i>Create Safety Plan
+                        </a>
+                    </div>
+                    
+                    <div class="support-reminder">
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-heart me-2"></i>Remember</h6>
+                            <p class="mb-0">
+                                You are not alone in this journey. Our team is here to support you every step of the way.
+                                If you need immediate assistance, don't hesitate to call our 24/7 helpline at 
+                                <a href="tel:0800428428" class="alert-link">0800 428 428</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

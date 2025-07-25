@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Safety Planning - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="safety-planning-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="page-header text-center mb-5">
+                    <h2><i class="fas fa-shield-alt me-3"></i>Create Your Safety Plan</h2>
+                    <p class="lead">
+                        A personalized safety plan can help you prepare for different situations and stay safer.
+                        This plan is private and stored securely.
+                    </p>
+                </div>
+                
+                <div class="safety-info mb-4">
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-info-circle me-2"></i>About Safety Planning</h6>
+                        <p class="mb-0">
+                            A safety plan is a practical guide that helps you think through how to protect yourself
+                            before, during, and after a dangerous situation. It includes your support network,
+                            safe places, and important resources.
+                        </p>
+                    </div>
+                </div>
+                
+                <form method="POST" class="safety-plan-form">
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="form-section">
+                                <h4><i class="fas fa-users me-2"></i>Emergency Contacts</h4>
+                                {{ form.emergency_contacts(class="form-control", rows="4", placeholder="List trusted people you can contact in an emergency:\n\n• Friend: Jane Doe - 082 123 4567\n• Family: Sister Mary - 071 987 6543\n• Neighbor: Mr. Smith - 083 456 7890") }}
+                                <div class="form-text">{{ form.emergency_contacts.description }}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-section">
+                                <h4><i class="fas fa-home me-2"></i>Safe Places</h4>
+                                {{ form.safe_places(class="form-control", rows="4", placeholder="Places where you feel safe and can go if needed:\n\n• Local police station\n• Friend's house\n• Community center\n• Religious institution") }}
+                                <div class="form-text">{{ form.safe_places.description }}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-section">
+                                <h4><i class="fas fa-exclamation-triangle me-2"></i>Warning Signs</h4>
+                                {{ form.warning_signs(class="form-control", rows="4", placeholder="Signs that indicate your safety may be at risk:\n\n• Increased verbal aggression\n• Threats or ultimatums\n• Isolation from friends/family\n• Control over finances") }}
+                                <div class="form-text">{{ form.warning_signs.description }}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-section">
+                                <h4><i class="fas fa-heart me-2"></i>Coping Strategies</h4>
+                                {{ form.coping_strategies(class="form-control", rows="4", placeholder="Healthy ways to cope with stress and difficult situations:\n\n• Deep breathing exercises\n• Calling a trusted friend\n• Going for a walk\n• Listening to music") }}
+                                <div class="form-text">{{ form.coping_strategies.description }}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <div class="form-section">
+                                <h4><i class="fas fa-file-alt me-2"></i>Important Documents</h4>
+                                {{ form.important_documents(class="form-control", rows="3", placeholder="Important documents and where they are stored:\n\n• ID document - safe at friend's house\n• Bank statements - cloud storage\n• Medical records - doctor's office\n• Children's documents - with mother") }}
+                                <div class="form-text">{{ form.important_documents.description }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-save me-2"></i>Save Safety Plan
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary btn-lg">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+                
+                <div class="safety-tips mt-5">
+                    <h4><i class="fas fa-lightbulb me-2"></i>Safety Planning Tips</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="tip-card">
+                                <h6>Keep Your Plan Private</h6>
+                                <p>Store your safety plan in a secure place where only you can access it.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tip-card">
+                                <h6>Update Regularly</h6>
+                                <p>Review and update your safety plan as your situation changes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tip-card">
+                                <h6>Share with Trusted People</h6>
+                                <p>Consider sharing parts of your plan with people you trust.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tip-card">
+                                <h6>Practice Your Plan</h6>
+                                <p>Rehearse key parts of your plan so you're prepared if needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

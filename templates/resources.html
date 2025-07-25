@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Resources - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="resources-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header text-center mb-5">
+                    <h2><i class="fas fa-book me-3"></i>Support Resources</h2>
+                    <p class="lead">Comprehensive resources to help you understand your rights and find support</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="resource-card">
+                    <div class="resource-icon legal-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h4>Legal Resources</h4>
+                    <p>Understanding your legal rights, protection orders, and legal aid services.</p>
+                    <a href="{{ url_for('legal_resources') }}" class="btn btn-primary">
+                        Learn More <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="resource-card">
+                    <div class="resource-icon community-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Community Forum</h4>
+                    <p>Connect with others, share experiences, and find peer support in a safe environment.</p>
+                    <a href="{{ url_for('community_forum') }}" class="btn btn-primary">
+                        Join Forum <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="resource-card">
+                    <div class="resource-icon health-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Mental Health Support</h4>
+                    <p>Information about trauma, healing, and accessing mental health services.</p>
+                    <a href="#" class="btn btn-primary">
+                        Get Support <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="resource-card">
+                    <div class="resource-icon safety-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Safety Guidelines</h4>
+                    <p>Practical tips for staying safe online, at home, and in your community.</p>
+                    <a href="#" class="btn btn-primary">
+                        Read Guidelines <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="resource-card">
+                    <div class="resource-icon education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Educational Materials</h4>
+                    <p>Understanding GBV, recognizing signs, and supporting others effectively.</p>
+                    <a href="#" class="btn btn-primary">
+                        Learn More <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="resource-card">
+                    <div class="resource-icon helpline-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>Helpline Directory</h4>
+                    <p>Comprehensive list of helplines and emergency contacts across South Africa.</p>
+                    <a href="{{ url_for('emergency') }}" class="btn btn-primary">
+                        View Directory <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="featured-resources">
+                    <h3>Featured Resources</h3>
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="featured-card">
+                                <h5>Know Your Rights</h5>
+                                <p>Every person has the right to live free from violence. Understanding your rights is the first step to getting help.</p>
+                                <ul>
+                                    <li>Right to safety and security</li>
+                                    <li>Right to dignity and respect</li>
+                                    <li>Right to access justice</li>
+                                    <li>Right to medical care</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="featured-card">
+                                <h5>Supporting Someone Else</h5>
+                                <p>If someone you know is experiencing GBV, here's how you can help:</p>
+                                <ul>
+                                    <li>Listen without judgment</li>
+                                    <li>Believe their story</li>
+                                    <li>Help them access professional support</li>
+                                    <li>Respect their decisions and timeline</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

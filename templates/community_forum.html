@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}Community Forum - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="forum-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header text-center mb-5">
+                    <h2><i class="fas fa-users me-3"></i>Community Forum</h2>
+                    <p class="lead">A safe space to connect, share experiences, and support each other</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="forum-notice mb-4">
+            <div class="alert alert-info">
+                <h6><i class="fas fa-shield-alt me-2"></i>Community Guidelines</h6>
+                <ul class="mb-0">
+                    <li>Respect everyone's privacy and experiences</li>
+                    <li>No personal information should be shared</li>
+                    <li>Be supportive and non-judgmental</li>
+                    <li>Report any inappropriate content</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="forum-topics">
+                    <h4>Discussion Topics</h4>
+                    
+                    <div class="topic-item">
+                        <div class="topic-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="topic-content">
+                            <h5>Support & Encouragement</h5>
+                            <p>Share words of encouragement and support with others on their journey</p>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comments me-1"></i>245 posts</span>
+                                <span><i class="fas fa-users me-1"></i>89 members</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-item">
+                        <div class="topic-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="topic-content">
+                            <h5>Coping Strategies</h5>
+                            <p>Share healthy coping mechanisms and self-care tips</p>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comments me-1"></i>178 posts</span>
+                                <span><i class="fas fa-users me-1"></i>67 members</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-item">
+                        <div class="topic-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="topic-content">
+                            <h5>Educational Resources</h5>
+                            <p>Share helpful articles, books, and educational materials</p>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comments me-1"></i>156 posts</span>
+                                <span><i class="fas fa-users me-1"></i>92 members</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-item">
+                        <div class="topic-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="topic-content">
+                            <h5>Questions & Answers</h5>
+                            <p>Ask questions and get support from community members</p>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comments me-1"></i>203 posts</span>
+                                <span><i class="fas fa-users me-1"></i>78 members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-posts mt-5">
+                    <h4>Recent Posts</h4>
+                    
+                    <div class="post-item">
+                        <div class="post-meta">
+                            <span class="username">Anonymous User</span>
+                            <span class="timestamp">2 hours ago</span>
+                        </div>
+                        <h6>Finding strength in small victories</h6>
+                        <p>Today I took a small step forward and wanted to share that sometimes the smallest victories are the most meaningful...</p>
+                        <div class="post-actions">
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-heart me-1"></i>Support (12)
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-reply me-1"></i>Reply (3)
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="post-item">
+                        <div class="post-meta">
+                            <span class="username">Community Member</span>
+                            <span class="timestamp">5 hours ago</span>
+                        </div>
+                        <h6>Self-care routine that's helping me</h6>
+                        <p>I wanted to share a simple self-care routine that has been helping me feel more grounded...</p>
+                        <div class="post-actions">
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-heart me-1"></i>Support (8)
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-reply me-1"></i>Reply (5)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="forum-sidebar">
+                    <div class="join-forum">
+                        <h5>Join the Community</h5>
+                        <p>Connect with others who understand your journey. All discussions are anonymous and moderated.</p>
+                        <button class="btn btn-primary w-100" onclick="alert('Forum registration would be implemented here')">
+                            <i class="fas fa-user-plus me-2"></i>Join Forum
+                        </button>
+                    </div>
+                    
+                    <div class="forum-stats">
+                        <h6>Community Stats</h6>
+                        <div class="stat-item">
+                            <span class="stat-number">342</span>
+                            <span class="stat-label">Active Members</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1,256</span>
+                            <span class="stat-label">Support Messages</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Moderated</span>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-resources">
+                        <h6>Quick Resources</h6>
+                        <ul>
+                            <li><a href="{{ url_for('emergency') }}">Emergency Contacts</a></li>
+                            <li><a href="{{ url_for('chat') }}">Live Chat Support</a></li>
+                            <li><a href="{{ url_for('safety_planning') }}">Safety Planning</a></li>
+                            <li><a href="{{ url_for('legal_resources') }}">Legal Resources</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

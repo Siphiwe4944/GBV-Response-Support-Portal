@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h1 class="hero-title">You Are Not Alone</h1>
+                <p class="hero-subtitle">
+                    A safe, confidential space to report incidents, find support, and access 
+                    resources. Your voice matters, and help is available 24/7.
+                </p>
+                
+                <div class="hero-actions mt-4">
+                    <a href="{{ url_for('report_incident') }}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-file-alt me-2"></i>Report an Incident
+                    </a>
+                    <a href="{{ url_for('find_services') }}" class="btn btn-success btn-lg">
+                        <i class="fas fa-users me-2"></i>Get Support Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Services -->
+<section class="services-section py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Emergency Contacts -->
+            <div class="col-lg-6">
+                <div class="service-card emergency-card h-100">
+                    <div class="card-header">
+                        <h3><i class="fas fa-phone me-3"></i>Emergency Contacts</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="emergency-item">
+                            <div class="emergency-label">
+                                <strong>SAPS Emergency</strong>
+                                <span class="badge">24/7</span>
+                            </div>
+                            <a href="tel:10111" class="btn btn-emergency-call">
+                                <i class="fas fa-phone me-2"></i>10111
+                            </a>
+                        </div>
+                        
+                        <div class="emergency-item">
+                            <div class="emergency-label">
+                                <strong>GBV Command Centre</strong>
+                                <span class="badge">24/7</span>
+                            </div>
+                            <a href="tel:0800428428" class="btn btn-emergency-call">
+                                <i class="fas fa-phone me-2"></i>0800 428 428
+                            </a>
+                        </div>
+                        
+                        <div class="emergency-item">
+                            <div class="emergency-label">
+                                <strong>Lifeline Counseling</strong>
+                                <span class="badge">24/7</span>
+                            </div>
+                            <a href="tel:0861322322" class="btn btn-emergency-call">
+                                <i class="fas fa-phone me-2"></i>0861 322 322
+                            </a>
+                        </div>
+                        
+                        <div class="remember-note">
+                            <i class="fas fa-heart text-warning me-2"></i>
+                            <div>
+                                <strong>Remember</strong>
+                                <p class="mb-0">You deserve support and safety. These numbers are confidential and free.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Grid -->
+            <div class="col-lg-6">
+                <div class="row g-3 h-100">
+                    <!-- Live Chat -->
+                    <div class="col-12">
+                        <div class="action-card chat-card">
+                            <div class="action-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Live Chat</h4>
+                                <p>Talk to a trained counselor</p>
+                                <a href="{{ url_for('chat') }}" class="btn btn-primary">Start Chat</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Find Services -->
+                    <div class="col-12">
+                        <div class="action-card services-card">
+                            <div class="action-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Find Services</h4>
+                                <p>Locate nearby support centers</p>
+                                <a href="{{ url_for('find_services') }}" class="btn btn-success">Find Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Secondary Actions -->
+        <div class="row g-4 mt-4">
+            <div class="col-lg-6">
+                <div class="action-card safety-card">
+                    <div class="action-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Safety Planning</h4>
+                        <p>Create your personal safety plan</p>
+                        <a href="{{ url_for('safety_planning') }}" class="btn btn-outline-primary">Start Planning</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="action-card progress-card">
+                    <div class="action-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Track Progress</h4>
+                        <p>Monitor your case status</p>
+                        <a href="{{ url_for('track_progress') }}" class="btn btn-outline-primary">View Status</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Cards -->
+<section class="features-section py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>How We Support You</h2>
+                <p class="lead">Comprehensive support designed with your safety and privacy in mind</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon report-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>Report Incident</h4>
+                    <p>Anonymous and secure reporting system</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon support-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Find Support</h4>
+                    <p>Connect with counselors and support services</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon safety-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Stay Safe</h4>
+                    <p>Safety planning and protection resources</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon emergency-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h4>Emergency</h4>
+                    <p>Immediate help and crisis intervention</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

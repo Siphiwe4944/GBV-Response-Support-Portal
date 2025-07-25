@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Find Support Services - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="services-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header text-center mb-5">
+                    <h2><i class="fas fa-map-marker-alt me-3"></i>Find Support Services</h2>
+                    <p class="lead">Locate professional support services and resources near you</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-lg-6">
+                <div class="service-detail-card">
+                    <div class="service-header">
+                        <h4>{{ service.name }}</h4>
+                        <span class="service-type-badge">{{ service.service_type }}</span>
+                    </div>
+                    
+                    <div class="service-content">
+                        <p class="service-description">{{ service.description }}</p>
+                        
+                        <div class="service-details">
+                            {% if service.address %}
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>{{ service.address }}</span>
+                            </div>
+                            {% endif %}
+                            
+                            {% if service.phone %}
+                            <div class="detail-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:{{ service.phone }}">{{ service.phone }}</a>
+                            </div>
+                            {% endif %}
+                            
+                            {% if service.email %}
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:{{ service.email }}">{{ service.email }}</a>
+                            </div>
+                            {% endif %}
+                            
+                            {% if service.hours %}
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>{{ service.hours }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="service-actions">
+                            {% if service.phone %}
+                            <a href="tel:{{ service.phone }}" class="btn btn-primary me-2">
+                                <i class="fas fa-phone me-2"></i>Call Now
+                            </a>
+                            {% endif %}
+                            {% if service.email %}
+                            <a href="mailto:{{ service.email }}" class="btn btn-outline-primary">
+                                <i class="fas fa-envelope me-2"></i>Email
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="emergency-services-card">
+                    <h3><i class="fas fa-exclamation-triangle me-3"></i>Emergency Services</h3>
+                    <p>If you're in immediate danger, contact these emergency services right away:</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <a href="tel:10111" class="emergency-service-btn">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>SAPS Emergency</strong>
+                                    <span>10111</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="tel:0800428428" class="emergency-service-btn">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>GBV Command Centre</strong>
+                                    <span>0800 428 428</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="tel:0861322322" class="emergency-service-btn">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Lifeline Counselling</strong>
+                                    <span>0861 322 322</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

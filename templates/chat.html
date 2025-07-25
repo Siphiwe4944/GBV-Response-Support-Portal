@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Live Chat Support - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="chat-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="chat-card">
+                    <div class="chat-header">
+                        <h3><i class="fas fa-comments me-3"></i>Live Chat Support</h3>
+                        <p class="mb-0">Connect with a trained counselor for confidential support</p>
+                    </div>
+                    
+                    <div class="chat-status">
+                        <div class="status-indicator online"></div>
+                        <span>Counselors are available now</span>
+                    </div>
+                    
+                    <div class="chat-info mb-4">
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-shield-alt me-2"></i>Your Privacy is Protected</h6>
+                            <ul class="mb-0">
+                                <li>All conversations are confidential and encrypted</li>
+                                <li>You can remain anonymous if you choose</li>
+                                <li>Trained counselors are available 24/7</li>
+                                <li>No conversation history is stored</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-window" id="chatWindow">
+                        <div class="welcome-message">
+                            <div class="counselor-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="message-content">
+                                    <strong>SafeVoice Counselor</strong>
+                                    <p>Hello! I'm here to provide confidential support and assistance. 
+                                    How can I help you today? You can share as much or as little as you're comfortable with.</p>
+                                    <small class="text-muted">Just now</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="messages"></div>
+                    </div>
+                    
+                    <div class="chat-input">
+                        <form id="messageForm">
+                            <div class="input-group">
+                                <input type="text" id="messageInput" class="form-control" 
+                                       placeholder="Type your message here..." autocomplete="off">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="chat-actions mt-3">
+                        <button class="btn btn-outline-secondary me-2" onclick="clearChat()">
+                            <i class="fas fa-trash me-2"></i>Clear Chat
+                        </button>
+                        <button class="btn btn-outline-danger" onclick="endChat()">
+                            <i class="fas fa-sign-out-alt me-2"></i>End Session
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="crisis-notice mt-4">
+                    <div class="alert alert-warning">
+                        <strong><i class="fas fa-exclamation-triangle me-2"></i>In Crisis?</strong>
+                        If you're in immediate danger, please don't wait for chat support. 
+                        Call <a href="tel:10111" class="alert-link">10111</a> for emergency assistance.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

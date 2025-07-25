@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Track Progress - SafeVoice{% endblock %}
+
+{% block content %}
+<section class="track-progress-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="page-header text-center mb-5">
+                    <h2><i class="fas fa-chart-line me-3"></i>Track Your Progress</h2>
+                    <p class="lead">Monitor your case status and access your support journey</p>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="search-section mb-4">
+                        <h4>Enter Your Case Reference</h4>
+                        <form id="trackingForm">
+                            <div class="input-group input-group-lg">
+                                <input type="text" class="form-control" id="caseId" 
+                                       placeholder="Enter your 8-digit case reference" maxlength="8">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search me-2"></i>Track Case
+                                </button>
+                            </div>
+                            <div class="form-text">
+                                Your case reference was provided when you submitted your report.
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="trackingResults" style="display: none;">
+                        <!-- Results will be dynamically loaded here -->
+                    </div>
+                    
+                    <div class="help-section">
+                        <h5><i class="fas fa-question-circle me-2"></i>Need Help Finding Your Case?</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="help-card">
+                                    <h6>Don't Have Your Reference?</h6>
+                                    <p>Contact our support team and we can help you locate your case using other information.</p>
+                                    <a href="tel:0800428428" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-phone me-2"></i>Call Support
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="help-card">
+                                    <h6>Want to Update Your Case?</h6>
+                                    <p>You can provide additional information or update your contact preferences.</p>
+                                    <a href="{{ url_for('report_incident') }}" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-plus me-2"></i>Add Information
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="status-legend mt-4">
+                    <h5>Case Status Guide</h5>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="status-item">
+                                <span class="status-badge submitted">Submitted</span>
+                                <p>Your report has been received and is awaiting review</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="status-item">
+                                <span class="status-badge under-review">Under Review</span>
+                                <p>A trained professional is reviewing your case</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="status-item">
+                                <span class="status-badge in-progress">In Progress</span>
+                                <p>We're working to connect you with appropriate support</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="status-item">
+                                <span class="status-badge completed">Completed</span>
+                                <p>Initial support has been provided, ongoing support available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('trackingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const caseId = document.getElementById('caseId').value;
+    
+    if (caseId.length !== 8) {
+        alert('Please enter a valid 8-digit case reference.');
+        return;
+    }
+    
+    // Simulate case lookup
+    const results = document.getElementById('trackingResults');
+    results.innerHTML = `
+        <div class="case-results">
+            <h4>Case Status: ${caseId}</h4>
+            <div class="progress-timeline">
+                <div class="timeline-item completed">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h6>Report Submitted</h6>
+                        <p>Your report was successfully submitted and received.</p>
+                        <small class="text-muted">2 days ago</small>
+                    </div>
+                </div>
+                <div class="timeline-item completed">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h6>Case Assigned</h6>
+                        <p>Your case has been assigned to a trained counselor.</p>
+                        <small class="text-muted">1 day ago</small>
+                    </div>
+                </div>
+                <div class="timeline-item active">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h6>Under Review</h6>
+                        <p>Our team is reviewing your case and preparing support options.</p>
+                        <small class="text-muted">Current status</small>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h6>Support Connection</h6>
+                        <p>We will connect you with appropriate local support services.</p>
+                        <small class="text-muted">Next step</small>
+                    </div>
+                </div>
+            </div>
+            <div class="case-actions mt-4">
+                <a href="tel:0800428428" class="btn btn-primary me-2">
+                    <i class="fas fa-phone me-2"></i>Speak to Counselor
+                </a>
+                <a href="{{ url_for('chat') }}" class="btn btn-outline-primary">
+                    <i class="fas fa-comments me-2"></i>Start Chat
+                </a>
+            </div>
+        </div>
+    `;
+    results.style.display = 'block';
+});
+</script>
+{% endblock %}
